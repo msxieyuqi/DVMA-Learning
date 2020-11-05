@@ -10,11 +10,11 @@
 	
 	*  Decompression of DVMA_Master.zip (which downloaded from ‘http://www.dvwa.co.uk/’) under the folder 'phpstudy_pro/wwww/.'
 	*  Modify suffix of document 'config.inc.php.dist' ->> 'config.inc.php'.
-	*  Modify the content of 'config.inc.php' --->>  modify values of 'db_username' and 'db_password' as 'root'.
-	  >namely, 'db_username'='root' and  'db_password' = 'root'.
-	*  Open the dvma webseit 'http://127.0.0.1/setup.php'
-	*  Login with default credential
-	  >namely, 'username' = 'admin', 'password' = 'password'
+	*  Modify the content of 'config.inc.php' --->>  modify values of 'db_username' and 'db_password' as 'root'.<br>
+	   ( namely, 'db_username'='root' and  'db_password' = 'root'. )
+	*  Open the dvma webseit 'http://127.0.0.1/setup.php'.
+	*  Login with default credential.<br>
+	  ( namely, 'username' = 'admin', 'password' = 'password')
     
     
 ### DVWA Sulutions of Brute Force: 
@@ -27,7 +27,8 @@
 ##### Method 1: Usage of Burpsuite for Brute Force 
 	  * Steps:
 		    * 1.1 open Burpsuite (Burpsuite is easy to get/download and install from web).
-		    * 1.2 click Proxy, set Intercept off firstly, then click 'open browser' to load the webseite, which need to be intercepted.
+		    * 1.2 click Proxy, set Intercept off firstly, then click 'open browser' to load the webseite,<br>
+		    	   which need to be intercepted.
 		    * 1.3 input arbitrary value to login, and Burpsuite will get the info about its.
 		    * 1.4 'Ctrl+l' or chose 'Action' as 'Send it to Intruder'.
 		    * 1.5 Add password as playload value.
@@ -45,15 +46,17 @@
 #### Medium Security Level:
   * Different from Low Level, a new function is added.
   
-	     * mysql_real_escape_string function, this function will transfer the special symbols, like " ' ", namely, this function can defence Sql Injection Attack.Thus, the Sql Injection Attack in medium level unfeasible nowly.
+	     * mysql_real_escape_string function, this function will transfer the special symbols, like " ' ", <br>
+	       namely, this function can defence Sql Injection Attack.Thus, the Sql Injection Attack in medium level unfeasible nowly.
 	     * but the Brute Force with Burpsuit is still work in this level.(same as low level, see the steps discription of low level)
             
 #### Highl Security Level:
    * At high level, a function of generation of CSRF Token is added. 
    
            * namely, generateSessionToken(); // Generate Anti-CSRF token  
-           * that means, the Request Url will contains a 'user_token' by sending to Server. And the Sever checks the recieved token firstly, if token is valid, then the Server
-               operates the Sql queries.
+           * that means, the Request Url will contains a 'user_token' by sending to Server. <br>
+	     And the Sever checks the recieved token firstly, if token is valid, then the Server <br>
+             operates the Sql queries.
                
       
       

@@ -25,8 +25,8 @@
     *   View Source
     *   Find that, only 'Login' will be validated, isset(*) checks whether para* is set and return True/False.
     *   Without any defense of Brute Force, also without any Filter of 'username' and 'password'.
-      `Method 1: Usage of Burpsuite for Brute Force ` 
-        * Steps:
+  ##### Method 1: Usage of Burpsuite for Brute Force 
+  * Steps:
             * 1.1 open Burpsuite (Burpsuite is easy to get/download and install from web).
             * 1.2 click Proxy, set Intercept off firstly, then click 'open browser' to load the webseite, which need to be intercepted.
             * 1.3 input arbitrary value to login, and Burpsuite will get the info about its.
@@ -34,13 +34,13 @@
             * 1.5 Add password as playload value.
             * 1.6 Fill the playload set, and start attack.
             * 1.7 Actually, you will find the response length of the correct password is different as others.
-       `Method 2: Sql Injection`
-  	     *2.1 
-	     	-username：  admin ' or ' 1 ' = ' 1
-            	-password: (none)
-	     *2.2 
-	     	-username: admin ' #   (#:annotation of rest request sentence.)
-           	 -pass: (none)
+   ##### Method 2: Sql Injection
+  * 2.1 
+	-username：  admin ' or ' 1 ' = ' 1
+        -password: (none)
+  * 2.2 
+	-username: admin ' #   (#:annotation of rest request sentence.)
+        -pass: (none)
             
    ##### *(Medium Security Level):
         ->Different from Low Level, a new function is added.

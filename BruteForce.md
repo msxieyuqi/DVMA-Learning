@@ -8,13 +8,13 @@
     
 ### DVMA
 	
-	   * Decompression of DVMA_Master.zip (which downloaded from ‘http://www.dvwa.co.uk/’) under the folder 'phpstudy_pro/wwww/.'
-	   * Modify suffix of document 'config.inc.php.dist' ->> 'config.inc.php'.
-	   * Modify the content of 'config.inc.php' --->>  modify values of 'db_username' and 'db_password' as 'root'.
-	      >namely, 'db_username'='root' and  'db_password' = 'root'.
-	   * Open the dvma webseit 'http://127.0.0.1/setup.php'
-	   * Login with default credential
-	       >namely, 'username' = 'admin', 'password' = 'password'
+	*  Decompression of DVMA_Master.zip (which downloaded from ‘http://www.dvwa.co.uk/’) under the folder 'phpstudy_pro/wwww/.'
+	*  Modify suffix of document 'config.inc.php.dist' ->> 'config.inc.php'.
+	*  Modify the content of 'config.inc.php' --->>  modify values of 'db_username' and 'db_password' as 'root'.
+	  >namely, 'db_username'='root' and  'db_password' = 'root'.
+	*  Open the dvma webseit 'http://127.0.0.1/setup.php'
+	*  Login with default credential
+	  >namely, 'username' = 'admin', 'password' = 'password'
     
     
 ### DVWA Sulutions of Brute Force: 
@@ -61,7 +61,7 @@
         
         
     
-  #-XSS(Reflected)
-      ->View Source
-      ->Find that, value of param 'name' is directly used, and without any Checking and filtering of Script.
-      ->Input: <script>alert('hello world')</script>
+## XSS(Reflected)
+      * View Source
+      * Find that, value of param 'name' is directly used, and without any Checking and filtering of Script.
+      * Input: <script>alert('hello world')</script>

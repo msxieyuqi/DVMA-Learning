@@ -1,5 +1,5 @@
     
-# Tasks of DVMA
+# Tasks-1 of DVMA
 
 ## DVWA Sulutions of Brute Force: 
   #### Brute Force 
@@ -110,8 +110,4 @@
 		# because 'test' is only including 7 passwords.
         
         
-    
-## XSS(Reflected)
-      * View Source
-      * Find that, value of param 'name' is directly used, and without any Checking and filtering of Script.
-      * Input: <script>alert('hello world')</script>
+

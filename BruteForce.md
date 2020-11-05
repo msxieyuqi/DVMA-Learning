@@ -76,8 +76,7 @@
 		
 * Use the Brupsuite to intercept the whole runtime of python code, we need to set the ProxyHandler of those code, so that, the Proxy is same as Brupsuite's.
       
-      	proxy_handler = urllib.request.ProxyHandler({'http': '127.0.0.1:8080'})
-		opener = urllib.request.build_opener(proxy_handler)
+      		proxy_handler = urllib.request.ProxyHandler({'http': '127.0.0.1:8080'}) ; opener = urllib.request.build_opener(proxy_handler)
           
 ##### Complete Code is as following:
 

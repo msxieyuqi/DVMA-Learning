@@ -1,19 +1,3 @@
-## Download, Install and Use of DVMA as Target 
-  
-### PhpStudy
-	
-   >(use Phpstudy for reduce the complexity of setting)<br>
-   * lauch Apache, and SQL database
-    
-### DVMA
-	
-	*  Decompression of DVMA_Master.zip (which downloaded from ‘http://www.dvwa.co.uk/’) under the folder 'phpstudy_pro/wwww/.'
-	*  Modify suffix of document 'config.inc.php.dist' ->> 'config.inc.php'.
-	*  Modify the content of 'config.inc.php' --->>  modify values of 'db_username' and 'db_password' as 'root'.
-	   ( namely, 'db_username'='root' and  'db_password' = 'root'. )
-	*  Open the dvma webseit 'http://127.0.0.1/setup.php'.
-	*  Login with default credential.
-	   ( namely, 'username' = 'admin', 'password' = 'password')
     
 # Tasks of DVMA
 
@@ -76,7 +60,7 @@
 		
 * Use the Brupsuite to intercept the whole runtime of python code, we need to set the ProxyHandler of those code, so that, the Proxy is same as Brupsuite's.
       
-      		proxy_handler = urllib.request.ProxyHandler({'http': '127.0.0.1:8080'}) ; opener = urllib.request.build_opener(proxy_handler)
+      	proxy_handler = urllib.request.ProxyHandler({'http': '127.0.0.1:8080'}) ; opener = urllib.request.build_opener(proxy_handler)
           
 ##### Complete Code is as following:
 

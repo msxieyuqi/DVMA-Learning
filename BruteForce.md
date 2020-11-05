@@ -1,18 +1,22 @@
-##Install Kali with Vmware
-#Download, Install and Use of DVMA as Target
+# Install Kali with Vmware<br>
+
+# Download, Install and Use of DVMA as Target <br>
+
   
-  #PhpStudy
-    (use Phpstudy for reduce the complexity of setting)
-    - lauch Apache, and SQL database
+  ## PhpStudy
+	
+   >>(use Phpstudy for reduce the complexity of setting)<br>
+   * lauch Apache, and SQL database
     
-  #DVMA
-    - decompression of DVMA_Master.zip (which downloaded from ‘http://www.dvwa.co.uk/’) under the folder 'phpstudy_pro/wwww/.'
-    - modify suffix of document 'config.inc.php.dist' ->> 'config.inc.php'
-    - modify the content of 'config.inc.php' --->>  modify values of 'db_username' and 'db_password' as 'root'
-          --> namely, 'db_username'='root' and  'db_password' = 'root'
-    - open the dvma webseit 'http://127.0.0.1/setup.php'
-    - login with default credential
-          --> namely, 'username' = 'admin', 'password' = 'password'
+  ## DVMA
+	
+   * Decompression of DVMA_Master.zip (which downloaded from ‘http://www.dvwa.co.uk/’) under the folder 'phpstudy_pro/wwww/.'
+   * Modify suffix of document 'config.inc.php.dist' ->> 'config.inc.php'.
+   * Modify the content of 'config.inc.php' --->>  modify values of 'db_username' and 'db_password' as 'root'.
+      >>namely, 'db_username'='root' and  'db_password' = 'root'.
+   * Open the dvma webseit 'http://127.0.0.1/setup.php'
+   * Login with default credential
+       >>namely, 'username' = 'admin', 'password' = 'password'
     
     
   #nikto -h www.baidu.com

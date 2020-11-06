@@ -2,13 +2,13 @@
 # Tasks-1 of DVMA
 
 ## DVWA Sulutions of Brute Force: 
-  #### Brute Force 
-  #### Low Security Level:
+  ## Brute Force 
+  ### Low Security Level:
     *   View Source
     *   Find that, only 'Login' will be validated, isset(*) checks whether para* is set and return True/False.
     *   Without any defense of Brute Force, also without any Filter of 'username' and 'password'.
     
-##### Method 1: Usage of Burpsuite for Brute Force 
+#### Method 1: Usage of Burpsuite for Brute Force 
 	  * Steps:
 		    * 1.1 open Burpsuite (Burpsuite is easy to get/download and install from web).
 		    * 1.2 click Proxy, set Intercept off firstly, then click 'open browser' to load the webseite,
@@ -19,7 +19,7 @@
 		    * 1.6 Fill the playload set, and start attack.
 		    * 1.7 Actually, you will find the response length of the correct password is different as others.
 	    
-##### Method 2: Sql Injection
+#### Method 2: Sql Injection
 	  * 2.1 
 		-username：  admin ' or ' 1 ' = ' 1
 		-password: (none)
@@ -27,7 +27,7 @@
 		-username: admin ' #   (#:annotation of rest request sentence.)
 		-pass: (none)
             
-#### Medium Security Level:
+### Medium Security Level:
   * Different from Low Level, a new function is added.
   
 	     * mysql_real_escape_string function, this function will transfer the special symbols, like " ' ", 
@@ -36,7 +36,7 @@
 	     * but the Brute Force with Burpsuit is still work in this level.
 	       (same as low level, see the steps discription of low level)
             
-#### Highl Security Level:
+### Highl Security Level:
    * At high level, a function of generation of CSRF Token is added. 
    
            * namely, generateSessionToken(); // Generate Anti-CSRF token  
@@ -110,4 +110,21 @@
 		# because 'test' is only including 7 passwords.
         
         
+### Impossible Security Level
+* At Impossible Level a 'Lockdown' setting is added. When login has been failed more than 3 times, the 'Login' will be locked for 15 minutes.
+* So that we can not no longer to brute force the login process.
+
+		    // Default values
+		    $total_failed_login = 3;
+		    $lockout_time       = 15;
+		    $account_locked     = false;
+		    
+* Also, 'PDO' defense system is added , and used to prevent from SQL Injection Attack.
+
+		$data->bindParam( ':user', $user, PDO::PARAM_STR );
+		
+	* Note:
+	
+		PDO: PHP Data Object. In PDO defense system ,it used pre-statement to prevetion SQL Injection.
+		bindParam: bind a php variable to a SQL param.
 

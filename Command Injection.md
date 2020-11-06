@@ -56,13 +56,13 @@
                '||' => '',
            );
   
-  * Those codes look like that, fast/almost all 'invalid characters are fitered. But actually, the developer made a mistake here '| '.
-  * So that, we can use '|' to concatenate 'input' and 'cmd' like 'input|cmd'.
-  * Finally we can input ' 127.0.0.1|ipconfig ' to solve this task, or we can say use this input to ' attack '.
+* Those codes look like that, fast/almost all 'invalid characters are fitered. But actually, the developer made a mistake here '| '.
+* So that, we can use '|' to concatenate 'input' and 'cmd' like 'input|cmd'.
+* Finally we can input ' 127.0.0.1|ipconfig ' to solve this task, or we can say use this input to ' attack '.
   
   ### Impossible Security Level
   
-  * Instead of setting blacklist to fiter 'invalid' characters, user's input will be splited into four parts and check each of them, whether those parts are numberic or not.
+* Instead of setting blacklist to fiter 'invalid' characters, user's input will be splited into four parts and check each of them, whether those parts are numberic or not.
   
            * Note: 
              $target = stripslashes( $target ); // to remove '/' from string

@@ -125,6 +125,6 @@
 		
 	* Note:
 	
-		PDO: PHP Data Object. In PDO defense system ,it used pre-statement to prevetion SQL Injection.
-		bindParam: bind a php variable to a SQL param.
+		* PDO: PHP Data Object. In PDO defense system ,it used pre-statement to prevetion SQL Injection.
+		* bindParam: bind a php variable to a SQL param.
 
